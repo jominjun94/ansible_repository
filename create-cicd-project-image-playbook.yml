@@ -4,7 +4,7 @@
   - name: create a docker image with deployed waf file
     command: docker build -t jch941022/1005 .
     args: 
-        chdir: /home/ubuntu/slave/workspace/tsesr1/facam-backend
+        chdir: /home/ubuntu/slave/workspace/tsesr1/spring_repository
     
   - name: push the image on Docker Hub
     command: docker push jch941022/1005
