@@ -2,15 +2,15 @@
 
   tasks:
   - name: create a docker image with deployed waf file
-    command: docker build -t jch941022/eks-project-hub .
+    command: docker build -t jch941022/1005 .
     args: 
-        chdir: /home/ubuntu/workspace/test_docker-hub/facam-backend
+        chdir: /home/ubuntu/slave/workspace/tsesr1/facam-backend
     
   - name: push the image on Docker Hub
-    command: docker push jch941022/eks-project-hub
+    command: docker push jch941022/1005
 
   - name: remove the docker image from the ansible server
-    command: docker rmi jch941022/eks-project-hub
+    command: docker rmi jch941022/1005
     ignore_errors: yes
 
     
