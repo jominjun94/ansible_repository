@@ -1,16 +1,9 @@
-- hosts: slave
+- name: Create pods using deployment 
+  hosts: kubernetes 
+  
+  tasks: 
+  - name: delete the previous deployment
+    command: git clone https://github.com/jch941022/gitops-repository.git
 
-  tasks:
-  - name: create a docker image with deployed waf file
-    command: docker build -t jch941022/1005 .
-    args: 
-        chdir: /home/ubuntu/slave/workspace/tsesr1/spring_repository
-    
-  - name: push the image on Docker Hub
-    command: docker push jch941022/1005
-
-  - name: remove the docker image from the ansible server
-    command: docker rmi jch941022/1005
-    ignore_errors: yes
-
-    
+  - name: create a deployment
+    command: kubectl apply -f gitops-repository/service/eks-manifest/application.yaml
